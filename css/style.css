@@ -1,0 +1,174 @@
+/* Nome da marca — alinhado à tipografia da logo (sans, azul marinho) */
+.brand-oseucro {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  color: #1e3a5f;
+  letter-spacing: -0.03em;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+.brand-oseucro:hover {
+  opacity: 0.85;
+}
+
+/* WhatsApp marca: verde #25D366; degradê com teal #128C7E */
+.btn-whatsapp-solid {
+  background-color: #25d366;
+  color: #fff;
+}
+.btn-whatsapp-solid:hover {
+  background-color: #20bd5a;
+}
+.btn-whatsapp-gradient {
+  background: linear-gradient(90deg, #25d366 0%, #128c7e 100%);
+  color: #fff;
+}
+.btn-whatsapp-gradient:hover {
+  filter: brightness(1.05);
+}
+
+/* Drawer menu (index) */
+#nav-drawer-backdrop {
+  transition: opacity 0.2s ease;
+}
+#nav-drawer-panel {
+  transition: transform 0.25s ease;
+}
+#nav-drawer-backdrop.is-open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+#nav-drawer-panel.is-open {
+  transform: translateX(0) !important;
+}
+
+/* Botões de destaque / COLEÇÃO — alinhado ao catálogo (pill lilás, texto branco no hover) */
+.btn-destaque-catalogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  min-height: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #faf3e6;
+  color: #645f51;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+.btn-destaque-catalogo:hover {
+  background-color: #745090;
+  color: #fff6fe;
+}
+
+/* Carrossel (detalhes do produto) */
+.oseucro-carousel {
+  position: relative;
+  touch-action: pan-y;
+}
+.oseucro-carousel__back {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  z-index: 3;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 248, 240, 0.78);
+  border: 1px solid rgba(185, 177, 162, 0.35);
+  box-shadow: 0 10px 30px rgba(54, 50, 39, 0.14);
+  color: #1e3a5f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.oseucro-carousel__back:hover {
+  opacity: 0.9;
+}
+.oseucro-carousel__back:active {
+  transform: scale(0.96);
+}
+.oseucro-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.oseucro-carousel__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transform: translateX(0%);
+  transition: transform 260ms ease;
+}
+.oseucro-carousel__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+.oseucro-carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.oseucro-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 248, 240, 0.75);
+  border: 1px solid rgba(185, 177, 162, 0.35);
+  box-shadow: 0 10px 30px rgba(54, 50, 39, 0.14);
+  color: #1e3a5f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.oseucro-carousel__btn:hover {
+  opacity: 0.9;
+}
+.oseucro-carousel__btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+.oseucro-carousel__btn[disabled] {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.oseucro-carousel__btn--prev {
+  left: 0.6rem;
+}
+.oseucro-carousel__btn--next {
+  right: 0.6rem;
+}
+.oseucro-carousel__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 248, 240, 0.6);
+  border: 1px solid rgba(185, 177, 162, 0.25);
+  backdrop-filter: blur(10px);
+}
+.oseucro-carousel__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: rgba(30, 58, 95, 0.35);
+  border: none;
+  padding: 0;
+}
+.oseucro-carousel__dot.is-active {
+  background: rgba(30, 58, 95, 0.9);
+}

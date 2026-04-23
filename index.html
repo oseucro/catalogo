@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="oseucro — artesanato em crochê: toucas, bandanas, bags, pareôs e colares"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#745090",
+              "primary-container": "#e1b6ff",
+              "on-primary-container": "#53306e",
+              "secondary": "#386859",
+              "on-surface-variant": "#645f51",
+              "outline-variant": "#b9b1a2",
+              "surface-container-low": "#faf3e6",
+              "surface-container-high": "#efe7d8",
+              "surface-container-highest": "#eae2d1",
+              "on-primary": "#fff6fe",
+              "background": "#fff8f0",
+              "on-surface": "#363227"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .watercolor-blob { filter: blur(40px); opacity: 0.4; }
+    </style>
+<style> body { min-height: max(884px, 100dvh); } </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen pb-32">
+<!-- Menu lateral -->
+<div id="nav-drawer-backdrop" class="fixed inset-0 z-[60] bg-black/40 opacity-0 pointer-events-none" aria-hidden="true" role="presentation"></div>
+<aside id="nav-drawer-panel" class="fixed top-0 right-0 z-[70] h-full w-[min(100%,20rem)] bg-[#FDF6EC] shadow-2xl translate-x-full flex flex-col pt-[env(safe-area-inset-top,0px)]" aria-label="Menu de acesso rápido">
+<div class="flex justify-between items-center px-5 py-4 border-b border-outline-variant/20">
+<span class="font-serif italic text-[#B28ACF] text-xl">Menu</span>
+<button type="button" id="nav-drawer-close" class="p-2 rounded-full hover:bg-black/5 text-on-surface" aria-label="Fechar menu">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col p-4 gap-1 font-body text-lg" aria-label="Acesso rápido">
+<a href="catalogo.html" class="py-3 px-4 rounded-xl hover:bg-primary-container/20 text-on-surface">Catálogo</a>
+<a href="sobre.html" class="py-3 px-4 rounded-xl hover:bg-primary-container/20 text-on-surface">Sobre a marca</a>
+<a href="contato.html" class="py-3 px-4 rounded-xl hover:bg-primary-container/20 text-on-surface">Contato</a>
+<a href="parceiros.html" class="py-3 px-4 rounded-xl hover:bg-primary-container/20 text-on-surface">Parceiros</a>
+</nav>
+</aside>
+
+<header class="fixed top-0 w-full z-50 bg-[#FDF6EC]/80 dark:bg-[#2B2F4A]/80 backdrop-blur-md shadow-sm">
+<div class="relative flex items-center justify-center min-h-[3.5rem] px-6 py-3 w-full">
+<button type="button" id="menu-drawer-btn" class="absolute left-6 top-1/2 -translate-y-1/2 flex items-center text-[#B28ACF] dark:text-[#E8A8C9] hover:opacity-80 p-1" aria-label="Abrir menu de acesso rápido" aria-expanded="false" aria-controls="nav-drawer-panel">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<a href="index.html" class="brand-oseucro text-2xl">oseucro</a>
+<a data-whatsapp-icon href="https://wa.me/5531984315417" class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center justify-center hover:opacity-90 transition-opacity" aria-label="WhatsApp">
+<svg class="w-8 h-8 shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+</div>
+</header>
+
+<main class="pt-20">
+<button id="page-voltar-topo" type="button" class="fixed bottom-[7.25rem] right-5 z-40 w-12 h-12 rounded-full bg-[#FDF6EC]/90 backdrop-blur-md border border-outline-variant/30 shadow-xl text-[#1e3a5f] hover:opacity-90 active:scale-95 transition will-change-transform" aria-label="Voltar ao topo" title="Voltar ao topo">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+</button>
+<section class="w-full mb-8 flex justify-center bg-surface-container-highest/50">
+<img alt="Modelos com peças em crochê oseucro — banadana e bag" class="block w-full max-w-[min(100%,85vh)] h-auto max-h-[85vh] object-contain object-center mx-auto shadow-lg" src="assets/img/banner-02.png"/>
+</section>
+
+<section class="px-6 py-12 relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary-container/30 rounded-full watercolor-blob"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-7">
+<h2 class="font-headline text-5xl md:text-7xl text-on-surface leading-tight tracking-tight mb-6">
+Artesanato feito com <span class="italic text-primary">afeto</span>
+</h2>
+<p class="text-on-surface-variant text-lg max-w-md mb-8 leading-relaxed">
+Peças exclusivas tecidas à mão, trazendo conforto e alma para o seu lar.
+</p>
+<a href="catalogo.html" class="inline-flex flex-col items-center justify-center text-center bg-[#B890D5] px-8 py-4 rounded-full shadow-lg shadow-black/10 hover:scale-105 transition-transform">
+<h1 class="font-headline italic font-bold text-[#53306E] text-3xl md:text-4xl leading-tight tracking-tight m-0">Achego</h1>
+<span class="font-sans text-xs uppercase font-bold tracking-[0.32em] leading-none mt-2 text-[#2B2F4A]">VER COLEÇÃO</span>
+</a>
+</div>
+<div class="md:col-span-5 relative flex justify-center flex-col items-center">
+<div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-surface shadow-2xl z-10">
+<img alt="Detalhe em crochê" class="w-full h-full object-cover" src="assets\img\colar-1-1.png"/>
+</div>
+<p class="mt-3 text-xs text-on-surface-variant/80 tracking-wide">Imagem Ilustrativa</p>
+<a href="detalhes.html?id=colar-0&amp;origem=index" class="mt-6 btn-destaque-catalogo text-sm font-bold px-6 py-3">Ver detalhes</a>
+<div class="absolute inset-0 translate-x-4 translate-y-4 w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-secondary-container to-primary-container/40 -z-10 blur-xl"></div>
+</div>
+</div>
+</section>
+
+<section class="px-6 py-6">
+<h2 class="sr-only">Categorias</h2>
+<div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
+<a href="catalogo.html?categoria=colares" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Colares</a>
+<a href="catalogo.html?categoria=cropped" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Cropped</a>
+<a href="catalogo.html?categoria=top" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Top</a>
+<a href="catalogo.html?categoria=pareos" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Pareôs</a>
+<a href="catalogo.html?categoria=bags" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Pocket Bags</a>
+<a href="catalogo.html?categoria=toucas" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Toucas</a>
+<a href="catalogo.html?categoria=bandanas" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Bandanas</a>
+<a href="catalogo.html?categoria=bolsas" class="flex-shrink-0 px-6 py-3 rounded-full font-label text-sm whitespace-nowrap transition-colors bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary hover:shadow-sm active:bg-primary active:text-on-primary">Bolsas</a>
+</div>
+</section>
+
+<section class="px-6 py-12">
+<div class="flex justify-between items-end mb-10">
+<div>
+<span class="text-[#1e3a5f] font-bold tracking-widest uppercase text-xs">Coleção</span>
+<h3 class="font-headline text-4xl text-on-surface mt-2">Destaques</h3>
+</div>
+<a class="text-[#1e3a5f] underline underline-offset-8 font-bold text-sm hover:opacity-80" href="catalogo.html">Ver tudo</a>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2 md:col-span-1 bg-surface-container-low rounded-lg p-6 relative group overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/20 rounded-full watercolor-blob -mr-10 -mt-10"></div>
+<div class="relative z-10">
+<a href="detalhes.html?id=bandana-1&amp;origem=index" class="block rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-xl group-hover:scale-105 transition-transform duration-500">
+<img alt="Bandana Fio da Saudade" class="w-full h-full object-cover" src="assets/img/bandana-1-1.png"/>
+</a>
+<p class="text-[11px] tracking-wide text-on-surface-variant/80 text-center mb-2">Imagem Ilustrativa</p>
+<h5 class="font-headline text-2xl text-center text-on-surface">Bandana Fio da Saudade</h5>
+<p class="text-primary text-center font-bold mt-2">A partir de R$ 60,00</p>
+<a href="detalhes.html?id=bandana-1&amp;origem=index" class="mt-4 w-full justify-center btn-destaque-catalogo py-3 font-bold">Ver detalhes</a>
+</div>
+</div>
+<div class="col-span-2 md:col-span-1 bg-surface-container-low rounded-lg p-6 relative group overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/20 rounded-full watercolor-blob -mr-10 -mt-10"></div>
+<div class="relative z-10">
+<a href="detalhes.html?id=touca-2&amp;origem=index" class="block rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-xl group-hover:scale-105 transition-transform duration-500">
+<img alt="Touca Lavanda" class="w-full h-full object-cover" src="assets/img/touca-laranja-1-1.png"/>
+</a>
+<p class="text-[11px] tracking-wide text-on-surface-variant/80 text-center mb-2">Imagem Ilustrativa</p>
+<h5 class="font-headline text-2xl text-center text-on-surface">Touca Laranja</h5>
+<p class="text-primary text-center font-bold mt-2">A partir de R$ 55,00</p>
+<a href="detalhes.html?id=touca-2&amp;origem=index" class="mt-4 w-full justify-center btn-destaque-catalogo py-3 font-bold">Ver detalhes</a>
+</div>
+</div>
+<div class="col-span-2 md:col-span-1 bg-surface-container-low rounded-lg p-6 relative group overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/20 rounded-full watercolor-blob -mr-10 -mt-10"></div>
+<div class="relative z-10">
+<a href="detalhes.html?id=bag-cesto-m&amp;origem=index" class="block rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-xl group-hover:scale-105 transition-transform duration-500">
+<img alt="Cropped Amarelo" class="w-full h-full object-cover" src="assets/img/cropped-amarelo-1-1.png"/>
+</a>
+<p class="text-[11px] tracking-wide text-on-surface-variant/80 text-center mb-2">Imagem Ilustrativa</p>
+<h5 class="font-headline text-2xl text-center text-on-surface">Cropped Amarelo</h5>
+<p class="text-primary text-center font-bold mt-2">A partir de R$ 80,00</p>
+<a href="detalhes.html?id=cropped-2&amp;origem=index" class="mt-4 w-full justify-center btn-destaque-catalogo py-3 font-bold">Ver detalhes</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="mx-6 my-12 bg-primary-container/20 rounded-xl p-8 text-center relative overflow-hidden">
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-secondary-container/30 rounded-full watercolor-blob"></div>
+<h3 class="font-headline text-3xl text-on-primary-container mb-4">Novidades e encomendas</h3>
+<p class="text-on-primary-container/80 mb-6 max-w-md mx-auto">Sem formulário no site — fale direto pelo WhatsApp para novidades ou peças sob medida.</p>
+<a href="https://wa.me/5531984315417?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20oseucro." class="btn-whatsapp-solid inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-bold shadow-md">
+<svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+Conversar no WhatsApp
+</a>
+</section>
+
+<footer class="px-6 pb-8 text-center text-on-surface-variant text-sm">
+<a href="https://instagram.com/oseucro" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline">@oseucro</a> no Instagram
+</footer>
+</main>
+
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#FDF6EC]/90 dark:bg-[#2B2F4A]/90 backdrop-blur-lg rounded-t-[2.5rem] shadow-[0_-4px_20px_rgba(54,50,39,0.08)]">
+<a class="flex flex-col items-center justify-center bg-[#B28ACF]/10 text-[#B28ACF] rounded-full px-5 py-2 transition-all" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Início</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2B2F4A]/60 dark:text-[#FDF6EC]/60 hover:text-[#B28ACF] transition-all" href="catalogo.html">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Explorar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2B2F4A]/60 dark:text-[#FDF6EC]/60 hover:text-[#B28ACF] transition-all" href="contato.html">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Contato</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2B2F4A]/60 dark:text-[#FDF6EC]/60 hover:text-[#B28ACF] transition-all" href="sobre.html" title="Sobre a marca">
+<img src="assets/img/logo-oseucro.png" alt="Sobre a marca" class="w-9 h-9 rounded-full object-cover border border-outline-variant/20 shadow-sm"/>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Sobre</span>
+</a>
+</nav>
+<script src="js/script.js"></script>
+</body>
+</html>
