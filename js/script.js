@@ -35,6 +35,44 @@
     return "https://wa.me/" + WA + "?text=" + encodeURIComponent(texto);
   }
 
+  function firstNonEmpty(list, getValue) {
+    if (!Array.isArray(list)) return "";
+    for (var i = 0; i < list.length; i++) {
+      var v = getValue ? getValue(list[i]) : list[i];
+      v = (v || "").trim();
+      if (v) return v;
+    }
+    return "";
+  }
+
+  function tamanhoParaWhatsapp(raw) {
+    var s = (raw || "").trim();
+    if (!s) return "";
+    // Extrai apenas o primeiro número e padroniza para "<numero>cm"
+    // Ex.: "70 cm (colar + corrente)" -> "70cm"
+    var m = s.match(/(\d+(?:[.,]\d+)?)/);
+    if (!m) return s;
+    var num = m[1].replace(",", ".");
+    // Se for inteiro (ex.: "65.0"), remove casas desnecessárias.
+    if (/^\d+\.0+$/.test(num)) num = num.split(".")[0];
+    return num + "cm";
+  }
+
+  function mensagemWhatsappProduto(produto) {
+    if (!produto) return "Olá! Vim pelo site oseucro e gostaria de mais informações.";
+    var cor = firstNonEmpty(produto.variantes, function (v) {
+      return v && v.cor;
+    });
+    var tamanho = firstNonEmpty(produto.variantes, function (v) {
+      return v && v.tamanho;
+    });
+    var tamanhoFmt = tamanhoParaWhatsapp(tamanho);
+    var base = "Olá! Tenho interesse na peça: " + produto.nome;
+    if (cor) base += " " + cor;
+    if (tamanhoFmt) base += ", tamanho " + tamanhoFmt;
+    return base;
+  }
+
   function detalheUrl(id, opcoes) {
     opcoes = opcoes || {};
     var p = new URLSearchParams();
@@ -356,7 +394,7 @@
 
     var whatsappBtn = document.getElementById("detalhe-whatsapp");
     if (whatsappBtn) {
-      whatsappBtn.href = whatsappUrl("Olá! Tenho interesse na peça " + p.nome + ".");
+      whatsappBtn.href = whatsappUrl(mensagemWhatsappProduto(p));
     }
 
     if (okEl) okEl.hidden = false;
