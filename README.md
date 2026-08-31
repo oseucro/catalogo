@@ -1,91 +1,111 @@
-# Design System: High-End Editorial Artisanal Experience
+Design System: Experiência Artesanal Editorial de Alto Padrão
+1. Visão Geral e Estrela-Guia Criativa
 
-## 1. Overview & Creative North Star
+Estrela-Guia Criativa: "A Galeria Tátil"
+Este design system afasta-se dos templates tradicionais de e-commerce para criar uma experiência de "Galeria Tátil". O objetivo é fazer a interface digital parecer tão intencional, suave e de alta qualidade quanto uma peça de crochê feita à mão. Alcançamos isso rejeitando grids rígidos em favor de uma assimetria intencional, formas orgânicas em camadas (efeitos de aquarela e molduras circulares) e uma escala tipográfica editorial que prioriza o respiro ao invés da densidade de informações.
 
-### Creative North Star: "The Tactile Gallery"
-This design system moves away from traditional e-commerce templates to create a "Tactile Gallery" experience. The goal is to make the digital interface feel as intentional, soft, and high-quality as a handmade crochet piece. We achieve this by rejecting rigid grids in favor of **intentional asymmetry**, layered organic shapes (watercolor and circular frames), and an editorial typography scale that prioritizes breathing room over information density.
+Para quebrar o visual "padrão":
 
-To break the "standard" look:
-- **Overlapping Elements:** Product images (contained in circular frames) should frequently overlap background watercolor bleeds or adjacent text blocks to create a sense of physical depth.
-- **Negative Space as Luxury:** Utilize generous margins (referencing the `spacing-24` and `spacing-16` tokens) to frame content like a museum curator would.
-- **Artisanal Imperfection:** Use subtle rotation on secondary images or decorative elements to mimic the "made by hand" ethos of the brand.
+    Elementos Sobrepostos: Imagens de produtos (contidas em molduras circulares) devem frequentemente se sobrepor aos fundos manchados em aquarela (watercolor bleeds) ou blocos de texto adjacentes para criar uma sensação de profundidade física.
 
----
+    Espaço Negativo como Luxo: Utilize margens generosas (referenciando os tokens spacing-24 e spacing-16) para emoldurar o conteúdo da mesma forma que um curador de museu faria.
 
-## 2. Colors & Surface Philosophy
+    Imperfeição Artesanal: Use uma rotação sutil em imagens secundárias ou elementos decorativos para imitar o espírito "feito à mão" da marca.
 
-The palette is a sophisticated blend of soft pastels anchored by a deep navy. Use these tokens to create a "no-line" editorial layout.
+2. Cores e Filosofia de Superfície
 
-### The "No-Line" Rule
-**Strictly prohibit 1px solid borders for sectioning.** To define boundaries, use tonal shifts in background colors.
-- Place a `surface-container-low` section (softer beige) against the main `background` (#fff8f0) to denote a change in content.
-- Use `surface-variant` for sidebars or highlighted callouts to create a soft separation without hard edges.
+A paleta é uma mistura sofisticada de tons pastéis suaves ancorados por um azul-marinho profundo (deep navy). Use esses tokens para criar um layout editorial "sem linhas" (no-line).
 
-### Surface Hierarchy & Nesting
-Treat the UI as a series of physical layers:
-1.  **Base Layer:** `surface` (#fff8f0) - The primary canvas.
-2.  **Mid-Level:** `surface-container` - For secondary information clusters.
-3.  **Top-Level:** `surface-container-highest` - For the most important interactive elements (e.g., product cards, cart summaries).
+A Regra "Sem Linhas"
+Proíba estritamente o uso de bordas sólidas de 1px para a divisão de seções. Para definir limites, use mudanças de tom nas cores de fundo.
 
-### The Glass & Gradient Rule
-- **Glassmorphism:** For floating navigation bars or quick-view modals, use semi-transparent versions of `surface` with a 20px `backdrop-blur`.
-- **Signature Gradients:** For primary CTAs and hero backgrounds, use a subtle linear gradient from `primary` (#745090) to `primary-container` (#e1b6ff) at a 45-degree angle. This provides a "soul" and depth that mimics dyed yarn.
+    Coloque uma seção surface-container-low (bege mais suave) contra o fundo principal (#fff8f0) para denotar uma mudança no conteúdo.
 
----
+    Use surface-variant para barras laterais ou destaques para criar uma separação suave sem bordas duras.
 
-## 3. Typography
+Hierarquia de Superfície e Aninhamento
+Trate a UI como uma série de camadas físicas:
 
-The type system balances the high-fashion elegance of **Newsreader** (used as a proxy for the elegance of Tenor Sans) with the approachable utility of **Manrope**.
+    Camada Base: surface (#fff8f0) - O canvas (tela) principal.
 
-- **Display (Newsreader):** Use for hero headers and brand moments. The high-contrast serifs convey "Artisanal Luxury."
-- **Headline & Title (Newsreader):** Set in `headline-lg` and `headline-md` for product names and category headers.
-- **Body & Labels (Manrope):** Use for descriptions and UI microcopy. The clean sans-serif ensures legibility against watercolor backgrounds.
+    Nível Médio: surface-container - Para agrupamentos de informações secundárias.
 
-**Editorial Tip:** Use `display-lg` for single, impactful words or phrases (e.g., "Handmade") and overlap them slightly with a circular product image for a high-end magazine feel.
+    Nível Superior: surface-container-highest - Para os elementos interativos mais importantes (ex: cards de produtos, resumos de carrinho).
 
----
+A Regra do Vidro e do Gradiente
 
-## 4. Elevation & Depth
+    Glassmorphism (Efeito Vidro): Para barras de navegação flutuantes ou modais de visualização rápida, use versões semitransparentes de surface com um backdrop-blur de 20px.
 
-Hierarchy is achieved through **Tonal Layering** and soft, ambient lighting rather than structural lines.
+    Gradientes de Assinatura: Para CTAs principais e fundos de destaque (hero), use um gradiente linear sutil de primary (#745090) para primary-container (#e1b6ff) em um ângulo de 45 graus. Isso traz "alma" e uma profundidade que imita fios tingidos.
 
-- **The Layering Principle:** A `surface-container-lowest` card placed on a `surface-container-low` section creates a natural "lift" without needing a shadow.
-- **Ambient Shadows:** For "floating" items (like a checkout button or mobile menu), use the following: `shadow: 0 12px 32px -4px rgba(54, 50, 39, 0.06)`. The shadow color must be a tint of `on-surface` (#363227) to remain natural.
-- **The "Ghost Border" Fallback:** If a border is required for accessibility, use the `outline-variant` token at **15% opacity**.
-- **Circular Frames:** In alignment with the logo reference, use `roundedness-full` for product thumbnails. Surround these with a subtle, multi-colored "watercolor ring" gradient using the brand's primary pastels.
+3. Tipografia
 
----
+O sistema tipográfico equilibra a elegância da alta moda da Newsreader (usada como um equivalente à elegância da Tenor Sans) com a utilidade acessível da Manrope.
 
-## 5. Components
+    Display (Newsreader): Use para cabeçalhos hero e momentos da marca. As serifas de alto contraste transmitem o "Luxo Artesanal".
 
-### Buttons
-- **Primary:** Gradient fill (`primary` to `primary-container`), `roundedness-full`, `on-primary` text. No border.
-- **Secondary:** `surface-container-highest` background with `primary` text. Use for "Add to Cart."
-- **Tertiary:** Text-only with a 2px underline in `secondary` (#386859). Use for "Read More."
+    Headline & Title (Newsreader): Definidos em headline-lg e headline-md para nomes de produtos e cabeçalhos de categoria.
 
-### Input Fields
-- **Styling:** Use `surface-container-low` for the field background.
-- **States:** On focus, transition the background to `surface-container-highest` and add a soft 2px `secondary` glow. Forbid hard black borders.
+    Body & Labels (Manrope): Use para descrições e microtextos da UI (microcopy). A fonte sem serifa limpa garante legibilidade contra os fundos em aquarela.
 
-### Cards & Lists
-- **The Anti-Divider Rule:** Forbid the use of divider lines in lists or cards. Separate items using `spacing-4` (vertical white space) or by alternating background colors between `surface` and `surface-container-low`.
-- **Product Cards:** Must feature a `roundedness-lg` (2rem) or `full` for images. Content should be center-aligned to maintain the "circular" theme of the logo.
+    Dica Editorial: Use display-lg para palavras ou frases únicas e de impacto (ex: "Feito à Mão") e sobreponha-as levemente com uma imagem de produto circular para uma sensação de revista de alto padrão.
 
-### Custom Component: The "Watercolor Accent"
-Small, semi-transparent SVG blobs using `on-secondary-container` or `primary-fixed-dim` placed behind images to soften the grid and add an artisanal, "painted" feel.
+4. Elevação e Profundidade
 
----
+A hierarquia é alcançada através de Camadas Tonais (Tonal Layering) e uma iluminação ambiente suave, em vez de linhas estruturais.
 
-## 6. Do's and Don'ts
+    O Princípio do Empilhamento (Layering): Um card surface-container-lowest posicionado sobre uma seção surface-container-low cria uma "elevação" natural sem a necessidade de aplicar sombra.
 
-### Do
-- **Do** use `spacing-20` (7rem) between major sections to let the design breathe.
-- **Do** use circular cropping for lifestyle imagery to echo the logo's geometry.
-- **Do** use `primary` (#745090) for all interactive icons to maintain brand recognition.
-- **Do** experiment with slightly offset text—e.g., a title that starts 20px further left than the body text below it—to break the "template" feel.
+    Sombras Ambientes: Para itens "flutuantes" (como um botão de checkout ou menu mobile), use a seguinte sombra: shadow: 0 12px 32px -4px rgba(54, 50, 39, 0.06). A cor da sombra deve ser uma tonalidade (tint) de on-surface (#363227) para permanecer natural.
 
-### Don't
-- **Don't** use 100% black (#000000). Use `on-surface` (#363227) for text to keep the palette "cozy."
-- **Don't** use sharp corners. Every element should have at least `roundedness-sm`.
-- **Don't** use box shadows on every card. Reserve shadows for elements that physically float or require immediate user interaction.
-- **Don't** use more than one "Display" font size on a single screen; keep the hierarchy focused.
+    A "Borda Fantasma" (Fallback): Se uma borda for necessária por questões de acessibilidade, use o token outline-variant com 15% de opacidade.
+
+    Molduras Circulares: Em alinhamento com a referência do logotipo, use roundedness-full para miniaturas de produtos. Contorne-as com um "anel de aquarela" sutil e multicolorido usando os tons pastéis primários da marca.
+
+5. Componentes
+
+Botões
+
+    Primário: Preenchimento em gradiente (primary para primary-container), roundedness-full, texto on-primary. Sem borda.
+
+    Secundário: Fundo surface-container-highest com texto primary. Use para "Adicionar ao Carrinho".
+
+    Terciário: Apenas texto com um sublinhado de 2px em secondary (#386859). Use para "Ler Mais".
+
+Campos de Entrada (Input Fields)
+
+    Estilização: Use surface-container-low para o fundo do campo.
+
+    Estados: Ao focar (on focus), faça a transição do fundo para surface-container-highest e adicione um brilho (glow) suave de 2px na cor secondary. Proíba bordas pretas e duras.
+
+Cards e Listas
+
+    A Regra Antidivisórias: Proíba o uso de linhas divisórias em listas ou cards. Separe os itens usando spacing-4 (espaço em branco vertical) ou alternando as cores de fundo entre surface e surface-container-low.
+
+    Cards de Produtos: Devem apresentar roundedness-lg (2rem) ou full para imagens. O conteúdo deve ser alinhado ao centro para manter o tema "circular" do logotipo.
+
+Componente Customizado: O "Toque de Aquarela"
+
+    Pequenas formas SVG irregulares (blobs) e semitransparentes, usando on-secondary-container ou primary-fixed-dim, colocadas atrás das imagens para suavizar o grid e adicionar um aspecto artesanal e "pintado".
+
+6. O que Fazer e o que Evitar (Do's and Don'ts)
+
+O que Fazer (Do)
+
+    Faça o uso de spacing-20 (7rem) entre as seções principais para deixar o design respirar.
+
+    Faça cortes circulares (cropping) em imagens de lifestyle para ecoar a geometria do logotipo.
+
+    Faça uso da cor primary (#745090) em todos os ícones interativos para manter o reconhecimento da marca.
+
+    Faça experimentos com textos levemente deslocados — ex: um título que começa 20px mais à esquerda do que o corpo de texto logo abaixo — para quebrar a sensação de "template".
+
+O que Evitar (Don't)
+
+    Não use preto 100% (#000000). Use on-surface (#363227) para textos para manter a paleta "aconchegante".
+
+    Não use cantos vivos ou pontiagudos. Todo elemento deve ter pelo menos roundedness-sm.
+
+    Não use sombras (box shadows) em todos os cards. Reserve as sombras para elementos que fisicamente flutuam ou que exigem interação imediata do usuário.
+
+    Não use mais do que um tamanho de fonte "Display" em uma única tela; mantenha a hierarquia bem focada.
