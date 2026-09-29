@@ -6,13 +6,14 @@
   var WA = "5531984315417";
   var COLECOES_POR_CATEGORIA = {
     colares: "Achego",
+    brincos: "Delicada",
     cropped: "Sensação",
     top: "Essência Livre",
     pareos: "Luxury",
     bandanas: "Identidade",
     bags: "Movimento",
     toucas: "Charme",
-    bolsas: "em breve",
+    bolsas: "Permanência",
   };
 
   function escapeHtml(s) {
@@ -379,17 +380,24 @@
       var medidaPrincipal = medidas.length ? medidas[0] : "30 cm";
       var descricaoPorCategoria = {
         colares: "a medida refere-se ao comprimento total da peça.",
+        brincos: " ",
         toucas: "a medida refere-se ao contorno aproximado da peça.",
         cropped: "a medida refere-se ao comprimento da peça no corpo.",
         bandanas: "a medida refere-se ao comprimento total da peça aberta.",
         bags: "a medida refere-se ao tamanho total da peça, incluindo alças.",
-        bolsas: "a medida refere-se ao tamanho total da peça, incluindo alças.",
+        bolsas: " ",
         pareos: "Sob medida.",
       };
-      var descricaoMedida =
-        descricaoPorCategoria[p.categoria] ||
-        "a medida refere-se ao comprimento total da peça.";
-      medidasEl.textContent = medidaPrincipal + " - " + descricaoMedida;
+      var descricaoRaw = Object.prototype.hasOwnProperty.call(
+        descricaoPorCategoria,
+        p.categoria
+      )
+        ? descricaoPorCategoria[p.categoria]
+        : "a medida refere-se ao comprimento total da peça.";
+      var descricaoMedida = (descricaoRaw || "").trim();
+      medidasEl.textContent = descricaoMedida
+        ? medidaPrincipal + " - " + descricaoMedida
+        : medidaPrincipal;
     }
 
     var whatsappBtn = document.getElementById("detalhe-whatsapp");
