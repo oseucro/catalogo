@@ -233,7 +233,7 @@
         "assets/img/b20.png",
       imagens: ["assets/img/b20.png", "assets/img/b20-1.png","assets/img/b20-2.png", "assets/img/b20-3.png" ],
       fio: "Fio de malha",
-      variantes: [{ cor: "Branca", tamanho: "Alça removível 95cm e bolsa 15cm x 20cm", preco: 109.90 }],
+      variantes: [{ cor: "Branca", tamanho: "Alça regulável 80cm - 40cm e bolsa 15cm x 20cm", preco: 134.90 }],
       destaque: true,
     },
     {
